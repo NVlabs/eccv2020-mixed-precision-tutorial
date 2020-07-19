@@ -1,0 +1,412 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="imgs/favicon.ico">
+
+    <title>AMP tutorial</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/gh/jablonczay/code-box-copy/code-box-copy/css/code-box-copy.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 18px;
+            padding-bottom: 50px;
+        }
+        hr {
+            background: #80808083;
+        }
+        .embed-responsive-2by1 {
+            padding-bottom: 50%;
+        }
+        .embed-responsive-4by1 {
+            padding-bottom: 25%;
+        }
+        .embed-responsive-6by1 {
+            padding-bottom: 16.67%;
+        }
+        .embed-responsive-8by1 {
+            padding-bottom: 12.50%;
+        }
+        .embed-responsive-teaser {
+            padding-bottom: 29%;
+        }
+        .float-button {
+            position: fixed;
+            right: 1%;
+            z-index: 9999;
+        }
+        .section {
+            background-color: #F5F5F5;
+            max-width: 62%;
+        }
+        .section-heading {
+            color: #76b900;
+            padding-top: 1%;
+        }
+        .table_header {
+            background-color: #76b900;
+            color: white;
+        }
+
+        hr {
+            border: 1px solid black;
+            margin: 0.2%;
+        }
+
+        .lightgreen {
+            background-color: #e6f3d1;
+        }
+
+        .mildgreen {
+            background-color: #75b90077;
+        }
+
+        table {
+            margin-top: 2%;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table td {
+            border: 1px solid black;
+            padding: 1%;
+            font-size: 16px;
+        }
+
+        table tr:first-child td {
+            border-top: 0;
+        }
+
+        table tr td:first-child {
+            border-left: 0;
+        }
+
+        table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        table tr td:last-child {
+            border-right: 0;
+        }
+
+        mark {
+            background-color: rgba(21, 255, 0, 0.61);
+            color: black;
+        }
+
+        .pic {
+            border-radius: 50%;
+            width: 100%;
+        }
+
+        .noborder,
+        .noborder tr,
+        .noborder th,
+        .noborder td {
+            border: none;
+        }
+    </style>
+  </head>
+
+  <body>
+    <header>
+    <main role="main">
+
+      <section class="jumbotron text-center" style="padding: 2%; background-color:#e6e9ec;">
+        <div class="container">
+            <h3 class="jumbotron-heading" style="margin-bottom: 0;">ECCV 2020 Tutorial on</h3>
+            <h2 class="jumbotron-heading">Accelerating Computer Vision with Mixed Precision</h2>
+        </div>
+
+        <div class="container" style="max-width: 768px;">
+            <div class="row">
+                <div class="col-md">
+                    <strong>Time and location:</strong><br>
+                    Sunday 23 August<br>
+                    Zoom link: TBD
+                </div>
+            </div>
+        </div>
+
+      </section>
+    </main>
+
+    <div class="container section text-center">
+        <div class="row">
+            <div class="col-md">
+                <h2 class="section-heading">Overview</h2>
+
+                <p>New levels of accuracy in computer vision, from image recognition and detection, to generating images with
+                GANs, have been achieved by increasing the size of trained models. Fast turn-around times while iterating on
+                the design of such models would greatly improve the rate of progress in this new era of computer vision.</p>
+
+
+                <p style="background-color: rgba(21, 255, 0, 0.61);">This tutorial will describe techniques that utilize half-precision floating point representations to
+                allow deep learning practitioners to accelerate the training of large deep networks while also reducing
+                memory requirements.</p>
+
+                <p>The talks and sessions below will provide a deep-dive into available software packages that enable easy
+                conversion of models to mixed precision training, practical application examples, tricks of the trade (mixed precision arithmetic, loss scaling, etc.), as well as considerations relevant to training many popular models in
+                commonly used deep learning frameworks including <a href="https://pytorch.org/" target="_blank">PyTorch</a>
+                and <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a>.</p>
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="container section text-center">
+        <div class="row">
+            <div class="col-md">
+                <h2 class="section-heading">Schedule</h2>
+                TBD.
+                <!-- <table align="center">
+                    <tbody>
+                        <tr class="table_header">
+                            <td><b>Time</b></td>
+                            <td><b>Title</b></td>
+                            <td><b>Speaker</b></td>
+                            <td><b>Affil.</b></td>
+                        </tr>
+                        <tr>
+                            <td>08:45 - 08:50</td>
+                            <td>Welcome</td>
+                            <td><a href="https://arunmallya.github.io/" target="_blank">Arun Mallya</a></td>
+                            <td>NVIDIA</td>
+                        </tr>
+                        <tr>
+                            <td>08:50 - 09:30</td>
+                            <td><a href="./files/dusan_stosic_intro_to_mixed_precision_training.pdf" target="_blank">
+                                Introduction to Mixed Precision Training with PyTorch and TensorFlow</a>
+                            </td>
+                            <td>Dusan Stosic</td>
+                            <td>NVIDIA</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 - 11:00</td>
+                            <td>Coffee Break</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class='mildgreen'>
+                            <td colspan=100%>
+                                <b>Accelerating Various Tasks with Mixed Precision</b>
+                            </td>
+                        </tr>
+                        <tr class="lightgreen">
+                            <td>11:00 - 11:20</td>
+                            <td><a href="./files/pavlo_molchanov_mixed_precision_for_pruning.pdf" target="_blank">
+                                Network Pruning</a>
+                            </td>
+                            <td>Pavlo Molchanov</td>
+                            <td>NVIDIA</td>
+                        </tr>
+                        <tr>
+                            <td>11:20 - 11:35</td>
+                            <td><a href="./files/karan_sapra_mixed_precision_for_semantic_seg.pdf" target="_blank">
+                                Semantic Segmentation</a>
+                            </td>
+                            <td>Karan Sapra</td>
+                            <td>NVIDIA</td>
+                        </tr>
+                        <tr class="lightgreen">
+                            <td>11:35 - 11:50</td>
+                            <td><a href="./files/guilin_liu_mixed_precision_for_inpainting.pdf" target="_blank">
+                                Image Processing</a>
+                            </td>
+                            <td><a href="https://liuguilin1225.github.io/" target="_blank">Guilin Liu</a></td>
+                            <td>NVIDIA</td>
+                        </tr>
+                        <tr>
+                            <td>11:50 - 12:10</td>
+                            <td><a href="./files/tingchunw_nvidia_mixed_precision_for_pix2pixHD.pdf" target="_blank">
+                                Image Synthesis</a>
+                            </td>
+                            <td><a href="https://tcwang0509.github.io/" target="_blank">Ting-Chun Wang</a></td>
+                            <td>NVIDIA</td>
+                        </tr>
+                        <tr class="lightgreen">
+                            <td>12:10 - 12:30</td>
+                            <td><a href="./files/mingyuliu_nvidia_mixed_precision_for_GauGAN.pdf" target="_blank">
+                                Generative Adversarial Networks (GANs)</a>
+                            </td>
+                            <td><a href="http://mingyuliu.net/" target="_blank">Ming-Yu Liu</a></td>
+                            <td>NVIDIA</td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="container section text-center">
+        <div class="row">
+            <div class="col-md">
+                <h2 class="section-heading">Organizers</h2>
+                <table align="center" class="noborder">
+                    <tbody>
+                        <tr>
+                            <td style="width: 15%;"><img class="pic" src="imgs/ArunMallya.jpg" alt="Arun Mallya"> </td>
+                            <td style="text-align: left;">
+                                <a href="https://arunmallya.github.io/" target="_blank"><b>Arun Mallya</b></a> is a Research
+                                Scientist at NVIDIA Research. He obtained his Ph.D. from the University of
+                                Illinois at Urbana-Champaign in 2018, with a focus on performing multiple tasks efficiently with
+                                a single deep network. He holds a B.Tech. in Computer Science and Engineering from the Indian
+                                Institute of Technology - Kharagpur (2012), an MS in Computer Science from the University of
+                                Illinois at Urbana-Champaign (2014).
+                                His current interests are on synthesizing new worlds with deep networks.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 15%;"><img class="pic" src="imgs/DusanStosic.jpeg" alt="Dusan Stosic"></td>
+                            <td style="text-align: left;">
+                                <b>Dusan Stosic</b> is a Senior Architect in Compute Architecture at NVIDIA. His focus is on accelerating deep neural network training and inference with precision arithmetic and other unconventional techniques. Previously, Dusan worked on optimizing applications for high performance computing using massively parallel architectures. He holds a PhD in computer science from the Federal University of Pernambuco, Brazil and in physics from the University of Antwerp, Belgium.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 15%;"><img class="pic" src="imgs/PauliusM.jpeg" alt="Paulius Micikevicius"></td>
+                            <td style="text-align: left;">
+                                <b>Paulius Micikevicius</b> works in compute architecture at NVIDIA on accelerating DNN training
+                                and
+                                inference through reduced arithmetic and other optimization techniques. In his previous roles at
+                                NVIDIA Paulius focused on parallelizing various compute workloads for GPUs, including DL,
+                                computer vision, scientific, and engineering applications.
+                                <!-- He also worked worked on developer
+                                education, connecting chip architecture details to software optimization techniques, resulting
+                                some of the highest rated and attended GPU Technology Conference talks.  -->
+                                Paulius has also worked
+                                as an assistant professor of Computer
+                                Science at Armstrong Atlantic State University. He holds a PhD in Computer Science from the
+                                University of Central Florida.
+                            </td>
+                        </tr>
+
+
+                        <!-- <tr>
+                            <td style="width: 15%;"><img class="pic" src="imgs/PavloMolchanov.jpg" alt="Pavlo Molchanov"> </td>
+                            <td style="text-align: left;">
+                                Pavlo Molchanov obtained PhD from Tampere University of Technology, Finland in the area of
+                                signal processing in 2014. His dissertation was focused on designing automatic target
+                                recognition systems for radars. Since 2015 he is with the Learning and Perception Research team
+                                at NVIDIA, currently holding a senior research scientist position. His research is focused on
+                                methods for neural network acceleration, and designing novel systems for human-computer
+                                interaction and human understanding. For network acceleration, he is interested in neural
+                                network pruning methods and conditional inference. For human understanding, he is working on
+                                landmark estimation, gesture recognition, hand pose estimation. He received the EuRAD best paper
+                                award in 2011 and EuRAD young engineer award in 2013.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 15%;"><img class="pic" src="imgs/KaranSapra.jpg" alt="Karan Sapra"></td>
+                            <td style="text-align: left;">
+                                <a href="https://karansapra.github.io/" target="_blank"><b>Karan Sapra</b></a>
+                                is a research scientist at NVIDIA in Santa Clara, US. He obtained his PhD.
+                                from Clemson University in 2018. During his PhD studies, he was an intern at Oak Ridge National
+                                Lab in 2015. His research interest lies in using deep learning for computer vision and computer
+                                graphics. During his PhD. he has also worked on various other research areas such as Peer2peer
+                                (P2P) networks, computer networking and security, and high performance computing (HPC)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 15%;"><img class="pic" src="imgs/GuilinLiu.jpg" alt="Guilin Liu"></td>
+                            <td style="text-align: left;">
+                                <a href="https://liuguilin1225.github.io/" target="_blank"><b>Guilin Liu</b></a> is a senior
+                                research
+                                scientist at NVIDIA in Santa Clara, US. He obtained
+                                his Ph.D. from George Mason University in 2017. During his P.h.D study, he as an intern at Adobe
+                                Research in 2016. He received his B.E. from Wuhan University in 2012. His research interest lies
+                                in the intersection among deep learning, computer vision and graphics. His recent research
+                                interest focus on using deep learning for image processing and estimating physical properties
+                                from images. His works have been published at ICCV, CVPR, ECCV, NeurIPS, IROS etc and featured
+                                in some mainstream media outlets including Fortune, Yahoo Finance, VentureBeat etc.
+                            </td>
+                        </tr> -->
+
+                        <tr>
+                            <td style="width: 15%;"><img class="pic" src="imgs/TingChunWang.jpg" alt="Ting-Chun Wang"></td>
+                            <td style="text-align: left;">
+                                <a href="https://tcwang0509.github.io/" target="_blank"><b>Ting-Chun Wang</b></a> is a research
+                                scientist at NVIDIA in Santa Clara, US. He obtained his Ph.D.
+                                from
+                                University of California, Berkeley, department of EECS, advised by Professor Ravi Ramamoorthi
+                                and Alexei A. Efros. He received his B.E from National Taiwan University. He is a recipient of
+                                the Berkeley Fellowship. His research interests include computer vision, machine learning and
+                                computer graphics, particularly the intersections of all three. His recent research focus is on
+                                using generative adversarial models to synthesize realistic images and videos, with applications
+                                to rendering, visual manipulations and beyond.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 15%;"><img class="pic" src="imgs/MingYuLiu.jpg" alt="Ming-Yu Liu"> </td>
+                            <td style="text-align: left;">
+                                <a href="http://mingyuliu.net/" target="_blank"><b>Ming-Yu Liu</b></a> is a principal research
+                                scientist at NVIDIA Research. Before joining NVIDIA in
+                                2016,
+                                he
+                                was a principal research scientist at Mitsubishi Electric Research Labs (MERL). He earned his
+                                Ph.D.
+                                from the Department of Electrical and Computer Engineering at the University of Maryland College
+                                Park in 2012.
+                                <!-- He is a recipient of the R&D 100 Award by R&D Magazine for his robotic bin picking system in 2014.  -->
+                                His semantic image synthesis paper and scene understanding paper are in the best
+                                paper finalist in the 2019 CVPR and 2015 RSS conferences, respectively. In SIGGRAPH 2019, he won
+                                the
+                                Best in Show Award and Audience Choice Award in the Real Time Live show for his image synthesis
+                                work.
+                                His research focus is on generative image modeling. His research goal is to enable
+                                machines
+                                human-like imagination capability.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <br>
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/gh/jablonczay/code-box-copy/clipboard/clipboard.min.js,gh/jablonczay/code-box-copy/code-box-copy/js/code-box-copy.min.js"></script>
+    <script src="https://saswatpadhi.github.io/prismjs-bibtex/prism-bibtex.min.js"></script>
+    <script>
+        (function($) {
+            $('.code-box-copy').codeBoxCopy();
+        })(jQuery);
+    </script>
+  </body>
+</html>
