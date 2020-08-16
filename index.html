@@ -16,9 +16,10 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link rel="stylesheet" href='//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic'>
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/gh/jablonczay/code-box-copy/code-box-copy/css/code-box-copy.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jablonczay/code-box-copy/code-box-copy/css/code-box-copy.min.css"/>
 
     <style>
         body {
@@ -81,7 +82,13 @@
             width: 100%;
         }
 
-        table td {
+        table td{
+            border: 1px solid black;
+            padding: 1%;
+            font-size: 16px;
+        }
+
+        th{
             border: 1px solid black;
             padding: 1%;
             font-size: 16px;
@@ -111,6 +118,7 @@
         .pic {
             border-radius: 50%;
             width: 100%;
+            max-width: 150px;
         }
 
         .noborder,
@@ -135,13 +143,16 @@
         <div class="container" style="max-width: 768px;">
             <div class="row">
                 <div class="col-md">
-                    <strong>Date and Time:</strong><br>
-                    Sunday 23 August<br>
-                    Zoom link: TBD.
+                    <strong>Date and Time in PDT (San Francisco time):</strong><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <p style="margin: 0;" id="time_slot_1"></p>
+                    <p style="margin: 0;" id="time_slot_2"></p>
                 </div>
             </div>
         </div>
-
       </section>
     </main>
 
@@ -169,84 +180,100 @@
 
     <div class="container section text-center">
         <div class="row">
-            <div class="col-md">
-                <h2 class="section-heading">Schedule</h2>
-                TBD.
-                <!-- <table align="center">
+            <div class="col-md" style="padding-left: 0; padding-right: 0;">
+                <h2 class="section-heading">Talks</h2>
+                YouTube playlist of all talks:
+                <a target="_blank" href="https://www.youtube.com/playlist?list=PL6Rbs64R_CcPsJflYb2doIMmFaDyo-oIK">https://www.youtube.com/playlist?list=PL6Rbs64R_CcPsJflYb2doIMmFaDyo-oIK</a>
+                <table class="table" style="width: 100%;">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col"
+                            style="border-right: 0px solid black;
+                            border-bottom: 1px solid black;
+                            font-size: 100%;">
+                            <b>Topic</b>
+                        </th>
+                        <th scope="col"
+                            style="border-bottom: 1px solid black;
+                            font-size: 100%;">
+                        </th>
+                        <th scope="col"
+                            style="border-bottom: 1px solid black;
+                            font-size: 100%;">
+                        </th>
+                        <th scope="col"
+                            style="border-bottom: 1px solid black;
+                            font-size: 100%;">
+                            <b>Speaker</b>
+                        </th>
+                      </tr>
+                    </thead>
                     <tbody>
-                        <tr class="table_header">
-                            <td><b>Time</b></td>
-                            <td><b>Title</b></td>
-                            <td><b>Speaker</b></td>
-                            <td><b>Affil.</b></td>
-                        </tr>
-                        <tr>
-                            <td>08:45 - 08:50</td>
-                            <td>Welcome</td>
-                            <td><a href="https://arunmallya.github.io/" target="_blank">Arun Mallya</a></td>
-                            <td>NVIDIA</td>
-                        </tr>
-                        <tr>
-                            <td>08:50 - 09:30</td>
-                            <td><a href="./files/dusan_stosic_intro_to_mixed_precision_training.pdf" target="_blank">
-                                Introduction to Mixed Precision Training with PyTorch and TensorFlow</a>
-                            </td>
-                            <td>Dusan Stosic</td>
-                            <td>NVIDIA</td>
-                        </tr>
-                        <tr>
-                            <td>10:00 - 11:00</td>
-                            <td>Coffee Break</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class='mildgreen'>
-                            <td colspan=100%>
-                                <b>Accelerating Various Tasks with Mixed Precision</b>
-                            </td>
-                        </tr>
-                        <tr class="lightgreen">
-                            <td>11:00 - 11:20</td>
-                            <td><a href="./files/pavlo_molchanov_mixed_precision_for_pruning.pdf" target="_blank">
-                                Network Pruning</a>
-                            </td>
-                            <td>Pavlo Molchanov</td>
-                            <td>NVIDIA</td>
-                        </tr>
-                        <tr>
-                            <td>11:20 - 11:35</td>
-                            <td><a href="./files/karan_sapra_mixed_precision_for_semantic_seg.pdf" target="_blank">
-                                Semantic Segmentation</a>
-                            </td>
-                            <td>Karan Sapra</td>
-                            <td>NVIDIA</td>
-                        </tr>
-                        <tr class="lightgreen">
-                            <td>11:35 - 11:50</td>
-                            <td><a href="./files/guilin_liu_mixed_precision_for_inpainting.pdf" target="_blank">
-                                Image Processing</a>
-                            </td>
-                            <td><a href="https://liuguilin1225.github.io/" target="_blank">Guilin Liu</a></td>
-                            <td>NVIDIA</td>
-                        </tr>
-                        <tr>
-                            <td>11:50 - 12:10</td>
-                            <td><a href="./files/tingchunw_nvidia_mixed_precision_for_pix2pixHD.pdf" target="_blank">
-                                Image Synthesis</a>
-                            </td>
-                            <td><a href="https://tcwang0509.github.io/" target="_blank">Ting-Chun Wang</a></td>
-                            <td>NVIDIA</td>
-                        </tr>
-                        <tr class="lightgreen">
-                            <td>12:10 - 12:30</td>
-                            <td><a href="./files/mingyuliu_nvidia_mixed_precision_for_GauGAN.pdf" target="_blank">
-                                Generative Adversarial Networks (GANs)</a>
-                            </td>
-                            <td><a href="http://mingyuliu.net/" target="_blank">Ming-Yu Liu</a></td>
-                            <td>NVIDIA</td>
-                        </tr>
+                      <tr>
+                        <td>Introduction</td>
+                        <td><a target="_blank" href="https://youtu.be/gbLnjqU7KCs">video</a></td>
+                        <td><a target="_blank" href="files/arun_mallya-intro.pdf">pdf</a></td>
+                        <td>Arun Mallya</td>
+                      </tr>
+                      <tr>
+                        <td colspan="4" style="background-color: #b6d7a8;">
+                            <b>Basics and Fundamentals</b>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Training Neural Networks with Tensor Cores</td>
+                        <td><a target="_blank" href="https://youtu.be/jF4-_ZK_tyc">video</a></td>
+                        <td><a target="_blank" href="files/dusan_stosic-training-neural-networks-with-tensor-cores.pdf">pdf</a></td>
+                        <td>Dusan Stosic</td>
+                      </tr>
+                      <tr>
+                        <td colspan="4" style="background-color: #ffe599;">
+                            <b>Code Optimization Tricks</b>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>PyTorch Performance Tuning Guide</td>
+                        <td><a target="_blank" href="https://youtu.be/9mS1fIYj1So">video</a></td>
+                        <td><a target="_blank" href="files/szymon_migacz-pytorch-performance-tuning-guide.pdf">pdf</a></td>
+                        <td>Szymon Migacz</td>
+                      </tr>
+                      <tr>
+                        <td colspan="4" style="background-color: #f9cb9c;">
+                            <b>Application Case Studies</b>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Mixed Precision Training for Conditional GANs</td>
+                        <td><a target="_blank" href="https://youtu.be/13gKpiXNW9c">video</a></td>
+                        <td><a target="_blank" href="files/mingyu_liu-amp-imaginaire.pdf">pdf</a></td>
+                        <td><a href="http://mingyuliu.net/" target="_blank"><b>Ming-Yu Liu</b></a></td>
+                      </tr>
+                      <tr>
+                        <td>Mixed Precision Training for FAZE: Few-shot Adaptive Gaze Estimation</td>
+                        <td><a target="_blank" href="https://youtu.be/842aM0BHeJI">video</a></td>
+                        <td><a target="_blank" href="files/shalini_de_mello-mixed-precision-training-for-faze.pdf">pdf</a></td>
+                        <td><a href="https://research.nvidia.com/person/shalini-gupta" target="_blank"><b>Shalini De Mello</b></a></td>
+                      </tr>
+                      <tr>
+                        <td>Mixed Precision Training for Video Synthesis</td>
+                        <td><a target="_blank" href="https://youtu.be/j-qKHc_ULa8">video</a></td>
+                        <td><a target="_blank" href="files/tingchun_wang-mixed-precision-vid2vid.pdf">pdf</a></td>
+                        <td><a href="https://tcwang0509.github.io/" target="_blank"><b>Ting-Chun Wang</b></a></td>
+                      </tr>
+                      <tr>
+                        <td>Mixed Precision Training for Convolutional Tensor-Train LSTM</td>
+                        <td><a target="_blank" href="https://youtu.be/1XuD-ozHTLY">video</a></td>
+                        <td><a target="_blank" href="files/wonmin_byeon-mixed-precision-training-for-convolutional-tensor-train-lstm.pdf">pdf</a></td>
+                        <td><a href="https://wonmin-byeon.github.io/" target="_blank"><b>Wonmin Byeon</b></a></td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid black;">
+                        <td>Mixed Precision Training for 3D Medical Image Analysis</td>
+                        <td><a target="_blank" href="https://youtu.be/YNackDBaJKs">video</a></td>
+                        <td><a target="_blank" href="files/dong_yang-mixed-precision-training-for-3d-medical-image-analysis.pdf">pdf</a></td>
+                        <td><a href="https://research.nvidia.com/person/dong-yang" target="_blank"><b>Dong Yang</b></a></td>
+                      </tr>
                     </tbody>
-                </table> -->
+                  </table>
             </div>
         </div>
     </div><br><br>
@@ -254,131 +281,97 @@
     <div class="container section text-center">
         <div class="row">
             <div class="col-md">
-                <h2 class="section-heading">Organizers</h2>
-                <table align="center" class="noborder">
-                    <tbody>
-                        <tr>
-                            <td style="width: 15%;"><img class="pic" src="imgs/ArunMallya.jpg" alt="Arun Mallya"> </td>
-                            <td style="text-align: left;">
-                                <a href="https://arunmallya.github.io/" target="_blank"><b>Arun Mallya</b></a> is a Research
-                                Scientist at NVIDIA Research. He obtained his Ph.D. from the University of
-                                Illinois at Urbana-Champaign in 2018, with a focus on performing multiple tasks efficiently with
-                                a single deep network. He holds a B.Tech. in Computer Science and Engineering from the Indian
-                                Institute of Technology - Kharagpur (2012), an MS in Computer Science from the University of
-                                Illinois at Urbana-Champaign (2014).
-                                His current interests are on synthesizing new worlds with deep networks.
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="width: 15%;"><img class="pic" src="imgs/DusanStosic.jpeg" alt="Dusan Stosic"></td>
-                            <td style="text-align: left;">
-                                <b>Dusan Stosic</b> is a Senior Architect in Compute Architecture at NVIDIA. His focus is on accelerating deep neural network training and inference with precision arithmetic and other unconventional techniques. Previously, Dusan worked on optimizing applications for high performance computing using massively parallel architectures. He holds a PhD in computer science from the Federal University of Pernambuco, Brazil and in physics from the University of Antwerp, Belgium.
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="width: 15%;"><img class="pic" src="imgs/PauliusM.jpeg" alt="Paulius Micikevicius"></td>
-                            <td style="text-align: left;">
-                                <b>Paulius Micikevicius</b> works in compute architecture at NVIDIA on accelerating DNN training
-                                and
-                                inference through reduced arithmetic and other optimization techniques. In his previous roles at
-                                NVIDIA Paulius focused on parallelizing various compute workloads for GPUs, including DL,
-                                computer vision, scientific, and engineering applications.
-                                <!-- He also worked worked on developer
-                                education, connecting chip architecture details to software optimization techniques, resulting
-                                some of the highest rated and attended GPU Technology Conference talks.  -->
-                                Paulius has also worked
-                                as an assistant professor of Computer
-                                Science at Armstrong Atlantic State University. He holds a PhD in Computer Science from the
-                                University of Central Florida.
-                            </td>
-                        </tr>
-
-
-                        <!-- <tr>
-                            <td style="width: 15%;"><img class="pic" src="imgs/PavloMolchanov.jpg" alt="Pavlo Molchanov"> </td>
-                            <td style="text-align: left;">
-                                Pavlo Molchanov obtained PhD from Tampere University of Technology, Finland in the area of
-                                signal processing in 2014. His dissertation was focused on designing automatic target
-                                recognition systems for radars. Since 2015 he is with the Learning and Perception Research team
-                                at NVIDIA, currently holding a senior research scientist position. His research is focused on
-                                methods for neural network acceleration, and designing novel systems for human-computer
-                                interaction and human understanding. For network acceleration, he is interested in neural
-                                network pruning methods and conditional inference. For human understanding, he is working on
-                                landmark estimation, gesture recognition, hand pose estimation. He received the EuRAD best paper
-                                award in 2011 and EuRAD young engineer award in 2013.
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="width: 15%;"><img class="pic" src="imgs/KaranSapra.jpg" alt="Karan Sapra"></td>
-                            <td style="text-align: left;">
-                                <a href="https://karansapra.github.io/" target="_blank"><b>Karan Sapra</b></a>
-                                is a research scientist at NVIDIA in Santa Clara, US. He obtained his PhD.
-                                from Clemson University in 2018. During his PhD studies, he was an intern at Oak Ridge National
-                                Lab in 2015. His research interest lies in using deep learning for computer vision and computer
-                                graphics. During his PhD. he has also worked on various other research areas such as Peer2peer
-                                (P2P) networks, computer networking and security, and high performance computing (HPC)
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="width: 15%;"><img class="pic" src="imgs/GuilinLiu.jpg" alt="Guilin Liu"></td>
-                            <td style="text-align: left;">
-                                <a href="https://liuguilin1225.github.io/" target="_blank"><b>Guilin Liu</b></a> is a senior
-                                research
-                                scientist at NVIDIA in Santa Clara, US. He obtained
-                                his Ph.D. from George Mason University in 2017. During his P.h.D study, he as an intern at Adobe
-                                Research in 2016. He received his B.E. from Wuhan University in 2012. His research interest lies
-                                in the intersection among deep learning, computer vision and graphics. His recent research
-                                interest focus on using deep learning for image processing and estimating physical properties
-                                from images. His works have been published at ICCV, CVPR, ECCV, NeurIPS, IROS etc and featured
-                                in some mainstream media outlets including Fortune, Yahoo Finance, VentureBeat etc.
-                            </td>
-                        </tr> -->
-
-                        <tr>
-                            <td style="width: 15%;"><img class="pic" src="imgs/TingChunWang.jpg" alt="Ting-Chun Wang"></td>
-                            <td style="text-align: left;">
-                                <a href="https://tcwang0509.github.io/" target="_blank"><b>Ting-Chun Wang</b></a> is a research
-                                scientist at NVIDIA in Santa Clara, US. He obtained his Ph.D.
-                                from
-                                University of California, Berkeley, department of EECS, advised by Professor Ravi Ramamoorthi
-                                and Alexei A. Efros. He received his B.E from National Taiwan University. He is a recipient of
-                                the Berkeley Fellowship. His research interests include computer vision, machine learning and
-                                computer graphics, particularly the intersections of all three. His recent research focus is on
-                                using generative adversarial models to synthesize realistic images and videos, with applications
-                                to rendering, visual manipulations and beyond.
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="width: 15%;"><img class="pic" src="imgs/MingYuLiu.jpg" alt="Ming-Yu Liu"> </td>
-                            <td style="text-align: left;">
-                                <a href="http://mingyuliu.net/" target="_blank"><b>Ming-Yu Liu</b></a> is a principal research
-                                scientist at NVIDIA Research. Before joining NVIDIA in
-                                2016,
-                                he
-                                was a principal research scientist at Mitsubishi Electric Research Labs (MERL). He earned his
-                                Ph.D.
-                                from the Department of Electrical and Computer Engineering at the University of Maryland College
-                                Park in 2012.
-                                <!-- He is a recipient of the R&D 100 Award by R&D Magazine for his robotic bin picking system in 2014.  -->
-                                His semantic image synthesis paper and scene understanding paper are in the best
-                                paper finalist in the 2019 CVPR and 2015 RSS conferences, respectively. In SIGGRAPH 2019, he won
-                                the
-                                Best in Show Award and Audience Choice Award in the Real Time Live show for his image synthesis
-                                work.
-                                His research focus is on generative image modeling. His research goal is to enable
-                                machines
-                                human-like imagination capability.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2 class="section-heading">Useful Links</h2>
+                <div class="text-left">
+                NVIDIA Tensor Cores: <a target="_blank" href="https://www.nvidia.com/en-us/data-center/tensor-cores/">https://www.nvidia.com/en-us/data-center/tensor-cores/</a><br>
+                Automatic Mixed Precision (AMP): <a target="_blank" href="https://nvidia.github.io/apex/amp.html">https://nvidia.github.io/apex/amp.html</a><br>
+                PyTorch AMP: <a target="_blank" href="https://pytorch.org/docs/stable/amp.html">https://pytorch.org/docs/stable/amp.html</a><br>
+                TensorFlow AMP: <a target="_blank" href="https://developer.nvidia.com/blog/nvidia-automatic-mixed-precision-tensorflow/">https://developer.nvidia.com/blog/nvidia-automatic-mixed-precision-tensorflow/</a><br>
+                High-Performance Sample Code for Various Applications: <a target="_blank" href="https://github.com/NVIDIA/DeepLearningExamples">https://github.com/NVIDIA/DeepLearningExamples</a><br>
+                Imaginaire GAN repository: <a target="_blank" href="https://github.com/NVlabs/imaginaire">https://github.com/NVlabs/imaginaire</a><br>
+                NVIDIA Data Loading Library (DALI) for faster data loading: <a target="_blank" href="https://github.com/NVIDIA/DALI">https://github.com/NVIDIA/DALI</a><br>
+                </div>
+                <br>
             </div>
         </div>
+    </div><br><br>
+
+    <div class="container section text-center">
+        <h2 class="section-heading center">Organizers</h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td style="border: 0;">
+                    <img class="pic" src="imgs/DusanStosic.jpeg" alt="Dusan Stosic">
+                </td>
+                <td style="border: 0;">
+                    <img class="pic" src="imgs/PauliusM.jpeg" alt="Paulius Micikevicius">
+                </td>
+                <td style="border: 0;">
+                    <img class="pic" src="imgs/placeholder.png" alt="Szymon Migacz">
+                </td>
+                <td style="border: 0;">
+                    <img class="pic" src="imgs/MingYuLiu.jpg" alt="Ming-Yu Liu">
+                </td>
+              </tr>
+              <tr>
+                <td style="border: 0;">
+                    <b>Dusan Stosic</b>
+                </td>
+                <td style="border: 0;">
+                    <b>Paulius Micikevicius</b>
+                </td>
+                <td style="border: 0;">
+                    <b>Szymon Migacz</b>
+                </td>
+                <td colspan="4" style="border: 0;">
+                    <a href="http://mingyuliu.net/" target="_blank"><b>Ming-Yu Liu</b></a>
+                </td>
+              </tr>
+
+              <tr>
+                <td style="border: 0;">
+                    <img class="pic" src="imgs/ShaliniDeMello.jpg" alt="Shalini De Mello">
+                </td>
+                <td style="border: 0;">
+                    <img class="pic" src="imgs/TingChunWang.jpg" alt="Ting-Chun Wang">
+                </td>
+                <td style="border: 0;">
+                    <img class="pic" src="imgs/WonminByeon.jpg" alt="Wonmin Byeon">
+                </td>
+                <td style="border: 0;">
+                    <img class="pic" src="imgs/DongYang.jpeg" alt="Dong Yang">
+                </td>
+              </tr>
+              <tr>
+                <td style="border: 0;">
+                    <a href="https://research.nvidia.com/person/shalini-gupta" target="_blank"><b>Shalini De Mello</b></a>
+                </td>
+                <td style="border: 0;">
+                    <a href="https://tcwang0509.github.io/" target="_blank"><b>Ting-Chun Wang</b></a>
+                </td>
+                <td style="border: 0;">
+                    <a href="https://wonmin-byeon.github.io/" target="_blank"><b>Wonmin Byeon</b></a>
+                </td>
+                <td style="border: 0;">
+                    <a href="https://research.nvidia.com/person/dong-yang" target="_blank"><b>Dong Yang</b></a>
+                </td>
+              </tr>
+
+              <tr>
+
+              </tr>
+                <td colspan=4 style="border: 0;">
+                  <img class="pic" src="imgs/ArunMallya.jpg" alt="Arun Mallya">
+                </td>
+              <tr>
+                <td colspan=4 style="border: 0;">
+                    <a href="https://arunmallya.github.io/" target="_blank"><b>Arun Mallya</b></a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
     </div>
 
 
@@ -396,17 +389,42 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/combine/gh/jablonczay/code-box-copy/clipboard/clipboard.min.js,gh/jablonczay/code-box-copy/code-box-copy/js/code-box-copy.min.js"></script>
-    <script src="https://saswatpadhi.github.io/prismjs-bibtex/prism-bibtex.min.js"></script>
     <script>
-        (function($) {
-            $('.code-box-copy').codeBoxCopy();
-        })(jQuery);
-    </script>
+        // Set the date we're counting down to.
+        var countDownDate_1 = new Date("Aug 23, 2020 01:30:00 UTC+01:00").getTime();
+        var countDownDate_2 = new Date("Aug 23, 2020 14:30:00 UTC+01:00").getTime();
+        // Time slot 1: Saturday 22 August, 5:30 pm - 7:00 pm PDT
+        // Time slot 2: Sunday 23 August, 6:30 am - 8:00 am PDT
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+          // Get today's date and time
+          var now = new Date().getTime();
+
+          // Find the distance between now and the count down date
+          var distance_1 = countDownDate_1 - now;
+          var distance_2 = countDownDate_2 - now;
+
+          // Time calculations for days, hours, minutes and seconds
+          var days_1 = Math.floor(distance_1 / (1000 * 60 * 60 * 24));
+          var days_2 = Math.floor(distance_2 / (1000 * 60 * 60 * 24));
+          var hours_1 = Math.floor((distance_1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var hours_2 = Math.floor((distance_2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes_1 = Math.floor((distance_1 % (1000 * 60 * 60)) / (1000 * 60));
+          var minutes_2 = Math.floor((distance_2 % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds_1 = Math.floor((distance_1 % (1000 * 60)) / 1000);
+          var seconds_2 = Math.floor((distance_2 % (1000 * 60)) / 1000);
+
+          // Display the result in the element with id="demo".
+          document.getElementById("time_slot_1").innerHTML =
+          '<b>Time slot 1:</b> Saturday 22 August, 5:30 pm - 7:00 pm PDT (' +
+          days_1 + "d " + hours_1 + "h " + minutes_1 + "m " + seconds_1 + "s) ";
+          document.getElementById("time_slot_2").innerHTML =
+          '<b>Time slot 2:</b> Sunday 23 August, 6:30 am - 8:00 am PDT (' +
+          days_2 + "d " + hours_2 + "h " + minutes_2 + "m " + seconds_2 + "s) ";
+        }, 1000);
+        </script>
   </body>
 </html>
