@@ -335,9 +335,10 @@
                         <ol>
                             <li>
                                 <b>What's the difference between FP32 and TF32 modes?</b><br>
-                                FP32 cores perform scalar instructions. TF32 is a Tensor Core mode, which performs
-                                matrix instructions - they are 8-16x faster and more energy efficient. Both take FP32 as
-                                inputs. TF32 mode also rounds those inputs to TF32.
+                                FP32 cores perform scalar instructions. TF32 is a <a target="_blank"
+                                    href="https://www.nvidia.com/en-us/data-center/tensor-cores/">Tensor Core</a> mode,
+                                which performs matrix instructions - they are 8-16x faster and more energy efficient.
+                                Both take FP32 as inputs. TF32 mode also rounds those inputs to TF32.
                             </li><br>
                             <li>
                                 <b>To my understanding, Tensor Cores are required for mixed precision training.
@@ -372,10 +373,12 @@
                                     mode?</b><br>
                                 Half converts the entire model (all weights and tensors) to FP16. AMP casts most layers
                                 and operations to FP16 (e.g. linear layers and convolutions), but leaves some layers in
-                                FP32 (e.g. normalizations and losses), according to its layer selection rules.
+                                FP32 (e.g. normalizations and losses), according to its layer selection rules. This
+                                helps stabilize training as the selected layers often require higher precision during
+                                training.
                             </li><br>
                             <li>
-                                <b>After training with mixed precision are there any examples to perform inference
+                                <b>After training with mixed precision, are there any examples to perform inference
                                     with our trained model using <a target="_blank"
                                         href="https://nvidia.github.io/apex/amp.html">AMP</a>?</b><br>
                                 If using frameworks, you can apply the same AMP wrapper on the inference script.
