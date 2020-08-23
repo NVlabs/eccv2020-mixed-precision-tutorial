@@ -297,6 +297,43 @@
     <div class="container section text-center">
         <div class="row">
             <div class="col-md">
+                <h2 class="section-heading">Tutorial Live QnA</h2>
+                <div class="text-left">
+                <ol>
+                    <li>
+                        <b>Do you see mixed precision being adopted more widely in the coming years?</b><br>
+                        Yes, mixed precision training is already very widely adopted, especially in the industry.
+                        We expect even more adoption since NVIDIA is providing extensive hardware and software support.
+                    </li><br>
+                    <li>
+                        <b>To my understanding, Tensor Cores are required for mixed precision training.
+                            Are you planning to include this functionality (mixed precision training) in
+                            your lower end GPUs?</b><br>
+                            All the GPUs of the Turing family have Tensor Cores, meaning that you can perform
+                            mixed precision training using any Turing GPU.
+                            Tensor Cores are also available on the Volta family of GPUs (the family before Turing).
+                    </li><br>
+                    <li>
+                        <b>If we use mixed precision training, do we need to support mixed-precision inference
+                            when deploying models on hardware like FPGA/ASIC? </b><br>
+                            No. 16 bit numbers can always be represented as single precision 32 bit numbers. You can also quantize the weights further during inference
+                    </li><br>
+                    <li>
+                        <b>Is it possible to use AMP (or regular mixed precision) when doing something that isn't
+                            machine learning?
+                            E.g. I have something in mind from stereo vision that would involve frequent
+                            matrix multiplications, but has nothing to do with neural networks.</b><br>
+                            Yes, you can use the <a target="_blank" href="https://developer.nvidia.com/cudnn">cuDNN</a> and <a target="_blank" href="https://developer.nvidia.com/cublas">cuBLAS</a> libraries which allow you to run lower precision computations on the Tensor Cores. You will however have to manually decide which computations should be / not be performed in lower precision.
+                    </li>
+                </ol>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="container section text-center">
+        <div class="row">
+            <div class="col-md">
                 <h2 class="section-heading">Useful Links</h2>
                 <div class="text-left">
                 NVIDIA Tensor Cores: <a target="_blank" href="https://www.nvidia.com/en-us/data-center/tensor-cores/">https://www.nvidia.com/en-us/data-center/tensor-cores/</a><br>
@@ -435,8 +472,7 @@
 
           // Display the result in the element with id="demo".
           document.getElementById("time_slot_1").innerHTML =
-          '<b>Time slot 1:</b> Saturday 22 August, 5:30 pm - 7:00 pm PDT';
-          // days_1 + "d " + hours_1 + "h " + minutes_1 + "m " + seconds_1 + "s) ";
+          '<b>Time slot 1:</b> <s>Saturday 22 August, 5:30 pm - 7:00 pm PDT</s>';
           document.getElementById("time_slot_2").innerHTML =
           '<b>Time slot 2:</b> Sunday 23 August, 6:30 am - 8:00 am PDT (' +
           days_2 + "d " + hours_2 + "h " + minutes_2 + "m " + seconds_2 + "s) ";
