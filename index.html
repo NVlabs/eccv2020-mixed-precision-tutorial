@@ -389,6 +389,16 @@
                                 precisions, such as 16-bits (FP16) and integer quantization (INT8/INT4).
                             </li><br>
                             <li>
+                                <b>Any recommended (empirical/theoretical) schedule for switching
+                                    between precision during training? Would it be straightforward to establish such a
+                                    schedule in PyTorch for instance?</b><br>
+                                We recommend wrapping and training the model with <a target="_blank"
+                                    href="https://nvidia.github.io/apex/amp.html">Apex AMP</a>, or the
+                                <a target="_blank" href="https://pytorch.org/docs/stable/amp.html">newer AMP</a>
+                                directly available in PyTorch. This will automatically train
+                                your model with mixed precision right from the start.
+                            </li><br>
+                            <li>
                                 <b>Do you see mixed precision being adopted more widely in the coming years?</b><br>
                                 Yes, mixed precision training is already very widely adopted, especially in the
                                 industry.
