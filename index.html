@@ -1,12 +1,12 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140332927-5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'UA-140332927-5');
@@ -21,15 +21,17 @@
     <title>AMP tutorial</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
     <link rel="stylesheet" href='//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic'>
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jablonczay/code-box-copy/code-box-copy/css/code-box-copy.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jablonczay/code-box-copy/code-box-copy/css/code-box-copy.min.css" />
 
     <style>
         body {
@@ -37,37 +39,47 @@
             font-size: 18px;
             padding-bottom: 50px;
         }
+
         hr {
             background: #80808083;
         }
+
         .embed-responsive-2by1 {
             padding-bottom: 50%;
         }
+
         .embed-responsive-4by1 {
             padding-bottom: 25%;
         }
+
         .embed-responsive-6by1 {
             padding-bottom: 16.67%;
         }
+
         .embed-responsive-8by1 {
             padding-bottom: 12.50%;
         }
+
         .embed-responsive-teaser {
             padding-bottom: 29%;
         }
+
         .float-button {
             position: fixed;
             right: 1%;
             z-index: 9999;
         }
+
         .section {
             background-color: #F5F5F5;
             max-width: 62%;
         }
+
         .section-heading {
             color: #76b900;
             padding-top: 1%;
         }
+
         .table_header {
             background-color: #76b900;
             color: white;
@@ -92,13 +104,13 @@
             width: 100%;
         }
 
-        table td{
+        table td {
             border: 1px solid black;
             padding: 1%;
             font-size: 16px;
         }
 
-        th{
+        th {
             border: 1px solid black;
             padding: 1%;
             font-size: 16px;
@@ -138,358 +150,424 @@
             border: none;
         }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-    <main role="main">
+        <main role="main">
 
-      <section class="jumbotron text-center" style="padding: 2%; background-color:#e6e9ec;">
-        <div class="container">
-            <h3 class="jumbotron-heading" style="margin-bottom: 0;">ECCV 2020 Tutorial on</h3>
-            <h2 class="jumbotron-heading">Accelerating Computer Vision with Mixed Precision</h2>
-        </div>
+            <section class="jumbotron text-center" style="padding: 2%; background-color:#e6e9ec;">
+                <div class="container">
+                    <h3 class="jumbotron-heading" style="margin-bottom: 0;">ECCV 2020 Tutorial on</h3>
+                    <h2 class="jumbotron-heading">Accelerating Computer Vision with Mixed Precision</h2>
+                </div>
 
-        <div class="container" style="max-width: 768px;">
+                <div class="container" style="max-width: 768px;">
+                    <div class="row">
+                        <div class="col-md">
+                            <strong>Date and Time in PDT (San Francisco time):</strong><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <p style="margin: 0;" id="time_slot_1"></p>
+                            <p style="margin: 0;" id="time_slot_2"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            ECCV tutorial microsite link:
+                            <a target="_blank"
+                                href="https://workshopsandtutorials.eccv2020.eu/papers/category/tutorial-sunday-aug-23/accelerating-computer-vision-with-mixed-precision/">click
+                                here</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="container section text-center">
             <div class="row">
                 <div class="col-md">
-                    <strong>Date and Time in PDT (San Francisco time):</strong><br>
+                    <h2 class="section-heading">Overview</h2>
+
+                    <p>New levels of accuracy in computer vision, from image recognition and detection, to generating
+                        images with
+                        GANs, have been achieved by increasing the size of trained models. Fast turn-around times while
+                        iterating on
+                        the design of such models would greatly improve the rate of progress in this new era of computer
+                        vision.</p>
+
+
+                    <p style="background-color: rgba(21, 255, 0, 0.61);">This tutorial will describe techniques that
+                        utilize half-precision floating point representations to
+                        allow deep learning practitioners to accelerate the training of large deep networks while also
+                        reducing
+                        memory requirements.</p>
+
+                    <p>The talks and sessions below will provide a deep-dive into available software packages that
+                        enable easy
+                        conversion of models to mixed precision training, practical application examples, tricks of the
+                        trade (mixed precision arithmetic, loss scaling, etc.), as well as considerations relevant to
+                        training many popular models in
+                        commonly used deep learning frameworks including <a href="https://pytorch.org/"
+                            target="_blank">PyTorch</a>
+                        and <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a>.</p>
                 </div>
             </div>
+        </div><br><br>
+
+        <div class="container section text-center">
             <div class="row">
-                <div class="col-md">
-                    <p style="margin: 0;" id="time_slot_1"></p>
-                    <p style="margin: 0;" id="time_slot_2"></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md">
-                    ECCV tutorial microsite link:
-                    <a target="_blank" href="https://workshopsandtutorials.eccv2020.eu/papers/category/tutorial-sunday-aug-23/accelerating-computer-vision-with-mixed-precision/">click here</a>
-                </div>
-            </div>
-        </div>
-      </section>
-    </main>
-
-    <div class="container section text-center">
-        <div class="row">
-            <div class="col-md">
-                <h2 class="section-heading">Overview</h2>
-
-                <p>New levels of accuracy in computer vision, from image recognition and detection, to generating images with
-                GANs, have been achieved by increasing the size of trained models. Fast turn-around times while iterating on
-                the design of such models would greatly improve the rate of progress in this new era of computer vision.</p>
-
-
-                <p style="background-color: rgba(21, 255, 0, 0.61);">This tutorial will describe techniques that utilize half-precision floating point representations to
-                allow deep learning practitioners to accelerate the training of large deep networks while also reducing
-                memory requirements.</p>
-
-                <p>The talks and sessions below will provide a deep-dive into available software packages that enable easy
-                conversion of models to mixed precision training, practical application examples, tricks of the trade (mixed precision arithmetic, loss scaling, etc.), as well as considerations relevant to training many popular models in
-                commonly used deep learning frameworks including <a href="https://pytorch.org/" target="_blank">PyTorch</a>
-                and <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a>.</p>
-            </div>
-        </div>
-    </div><br><br>
-
-    <div class="container section text-center">
-        <div class="row">
-            <div class="col-md" style="padding-left: 0; padding-right: 0;">
-                <h2 class="section-heading">Talks</h2>
-                YouTube playlist of all talks:
-                <a target="_blank" href="https://www.youtube.com/playlist?list=PL6Rbs64R_CcPsJflYb2doIMmFaDyo-oIK">https://www.youtube.com/playlist?list=PL6Rbs64R_CcPsJflYb2doIMmFaDyo-oIK</a>
-                <table class="table" style="width: 100%;">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col"
-                            style="border-right: 0px solid black;
+                <div class="col-md" style="padding-left: 0; padding-right: 0;">
+                    <h2 class="section-heading">Talks</h2>
+                    YouTube playlist of all talks:
+                    <a target="_blank"
+                        href="https://www.youtube.com/playlist?list=PL6Rbs64R_CcPsJflYb2doIMmFaDyo-oIK">https://www.youtube.com/playlist?list=PL6Rbs64R_CcPsJflYb2doIMmFaDyo-oIK</a>
+                    <table class="table" style="width: 100%;">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" style="border-right: 0px solid black;
                             border-bottom: 1px solid black;
                             font-size: 100%;">
-                            <b>Topic</b>
-                        </th>
-                        <th scope="col"
-                            style="border-bottom: 1px solid black;
+                                    <b>Topic</b>
+                                </th>
+                                <th scope="col" style="border-bottom: 1px solid black;
                             font-size: 100%;">
-                        </th>
-                        <th scope="col"
-                            style="border-bottom: 1px solid black;
+                                </th>
+                                <th scope="col" style="border-bottom: 1px solid black;
                             font-size: 100%;">
-                        </th>
-                        <th scope="col"
-                            style="border-bottom: 1px solid black;
+                                </th>
+                                <th scope="col" style="border-bottom: 1px solid black;
                             font-size: 100%;">
-                            <b>Speaker</b>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Introduction</td>
-                        <td><a target="_blank" href="https://youtu.be/gbLnjqU7KCs">video</a></td>
-                        <td><a target="_blank" href="files/arun_mallya-intro.pdf">pdf</a></td>
-                        <td><a href="https://arunmallya.github.io/" target="_blank"><b>Arun Mallya</b></a></td>
-                      </tr>
-                      <tr>
-                        <td colspan="4" style="background-color: #b6d7a8;">
-                            <b>Basics and Fundamentals</b>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Training Neural Networks with Tensor Cores</td>
-                        <td><a target="_blank" href="https://youtu.be/jF4-_ZK_tyc">video</a></td>
-                        <td><a target="_blank" href="files/dusan_stosic-training-neural-networks-with-tensor-cores.pdf">pdf</a></td>
-                        <td>Dusan Stosic</td>
-                      </tr>
-                      <tr>
-                        <td colspan="4" style="background-color: #ffe599;">
-                            <b>Code Optimization Tricks</b>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>PyTorch Performance Tuning Guide</td>
-                        <td><a target="_blank" href="https://youtu.be/9mS1fIYj1So">video</a></td>
-                        <td><a target="_blank" href="files/szymon_migacz-pytorch-performance-tuning-guide.pdf">pdf</a></td>
-                        <td>Szymon Migacz</td>
-                      </tr>
-                      <tr>
-                        <td colspan="4" style="background-color: #f9cb9c;">
-                            <b>Application Case Studies</b>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Mixed Precision Training for Conditional GANs</td>
-                        <td><a target="_blank" href="https://youtu.be/13gKpiXNW9c">video</a></td>
-                        <td><a target="_blank" href="files/mingyu_liu-amp-imaginaire.pdf">pdf</a></td>
-                        <td><a href="http://mingyuliu.net/" target="_blank"><b>Ming-Yu Liu</b></a></td>
-                      </tr>
-                      <tr>
-                        <td>Mixed Precision Training for FAZE: Few-shot Adaptive Gaze Estimation</td>
-                        <td><a target="_blank" href="https://youtu.be/842aM0BHeJI">video</a></td>
-                        <td><a target="_blank" href="files/shalini_de_mello-mixed-precision-training-for-faze.pdf">pdf</a></td>
-                        <td><a href="https://research.nvidia.com/person/shalini-gupta" target="_blank"><b>Shalini De Mello</b></a></td>
-                      </tr>
-                      <tr>
-                        <td>Mixed Precision Training for Video Synthesis</td>
-                        <td><a target="_blank" href="https://youtu.be/j-qKHc_ULa8">video</a></td>
-                        <td><a target="_blank" href="files/tingchun_wang-mixed-precision-vid2vid.pdf">pdf</a></td>
-                        <td><a href="https://tcwang0509.github.io/" target="_blank"><b>Ting-Chun Wang</b></a></td>
-                      </tr>
-                      <tr>
-                        <td>Mixed Precision Training for Convolutional Tensor-Train LSTM</td>
-                        <td><a target="_blank" href="https://youtu.be/1XuD-ozHTLY">video</a></td>
-                        <td><a target="_blank" href="files/wonmin_byeon-mixed-precision-training-for-convolutional-tensor-train-lstm.pdf">pdf</a></td>
-                        <td><a href="https://wonmin-byeon.github.io/" target="_blank"><b>Wonmin Byeon</b></a></td>
-                      </tr>
-                      <tr style="border-bottom: 1px solid black;">
-                        <td>Mixed Precision Training for 3D Medical Image Analysis</td>
-                        <td><a target="_blank" href="https://youtu.be/YNackDBaJKs">video</a></td>
-                        <td><a target="_blank" href="files/dong_yang-mixed-precision-training-for-3d-medical-image-analysis.pdf">pdf</a></td>
-                        <td><a href="https://research.nvidia.com/person/dong-yang" target="_blank"><b>Dong Yang</b></a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </div>
-    </div><br><br>
-
-    <div class="container section text-center">
-        <div class="row">
-            <div class="col-md">
-                <h2 class="section-heading">Tutorial QnA</h2>
-                <div class="text-left">
-                <ol>
-                    <li>
-                        <b>Do you see mixed precision being adopted more widely in the coming years?</b><br>
-                        Yes, mixed precision training is already very widely adopted, especially in the industry.
-                        We expect even more adoption since NVIDIA is providing extensive hardware and software support.
-                    </li><br>
-                    <li>
-                        <b>To my understanding, Tensor Cores are required for mixed precision training.
-                            Are you planning to include this functionality (mixed precision training) in
-                            your lower end GPUs?</b><br>
-                            All the GPUs of the Turing family have Tensor Cores, meaning that you can perform
-                            mixed precision training using any Turing GPU.
-                            Tensor Cores are also available on the Volta family of GPUs (the family before Turing).
-                    </li><br>
-                    <li>
-                        <b>If we use mixed precision training, do we need to support mixed-precision inference
-                            when deploying models on hardware like FPGA/ASIC? </b><br>
-                            No. 16 bit numbers can always be represented as single precision 32 bit numbers. You can also quantize the weights further during inference.
-                    </li><br>
-                    <li>
-                        <b>Is it possible to use AMP (or regular mixed precision) when doing something that isn't
-                            machine learning?
-                            E.g. I have something in mind from stereo vision that would involve frequent
-                            matrix multiplications, but has nothing to do with neural networks.</b><br>
-                            Yes, you can use the <a target="_blank" href="https://developer.nvidia.com/cudnn">cuDNN</a> and <a target="_blank" href="https://developer.nvidia.com/cublas">cuBLAS</a> libraries which allow you to run lower precision computations on the Tensor Cores. You will however have to manually decide which computations should be / not be performed in lower precision.
-                    </li>
-                </ol>
+                                    <b>Speaker</b>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Introduction</td>
+                                <td><a target="_blank" href="https://youtu.be/gbLnjqU7KCs">video</a></td>
+                                <td><a target="_blank" href="files/arun_mallya-intro.pdf">pdf</a></td>
+                                <td><a href="https://arunmallya.github.io/" target="_blank"><b>Arun Mallya</b></a></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="background-color: #b6d7a8;">
+                                    <b>Basics and Fundamentals</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Training Neural Networks with Tensor Cores</td>
+                                <td><a target="_blank" href="https://youtu.be/jF4-_ZK_tyc">video</a></td>
+                                <td><a target="_blank"
+                                        href="files/dusan_stosic-training-neural-networks-with-tensor-cores.pdf">pdf</a>
+                                </td>
+                                <td>Dusan Stosic</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="background-color: #ffe599;">
+                                    <b>Code Optimization Tricks</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PyTorch Performance Tuning Guide</td>
+                                <td><a target="_blank" href="https://youtu.be/9mS1fIYj1So">video</a></td>
+                                <td><a target="_blank"
+                                        href="files/szymon_migacz-pytorch-performance-tuning-guide.pdf">pdf</a></td>
+                                <td>Szymon Migacz</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="background-color: #f9cb9c;">
+                                    <b>Application Case Studies</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mixed Precision Training for Conditional GANs</td>
+                                <td><a target="_blank" href="https://youtu.be/13gKpiXNW9c">video</a></td>
+                                <td><a target="_blank" href="files/mingyu_liu-amp-imaginaire.pdf">pdf</a></td>
+                                <td><a href="http://mingyuliu.net/" target="_blank"><b>Ming-Yu Liu</b></a></td>
+                            </tr>
+                            <tr>
+                                <td>Mixed Precision Training for FAZE: Few-shot Adaptive Gaze Estimation</td>
+                                <td><a target="_blank" href="https://youtu.be/842aM0BHeJI">video</a></td>
+                                <td><a target="_blank"
+                                        href="files/shalini_de_mello-mixed-precision-training-for-faze.pdf">pdf</a></td>
+                                <td><a href="https://research.nvidia.com/person/shalini-gupta"
+                                        target="_blank"><b>Shalini De Mello</b></a></td>
+                            </tr>
+                            <tr>
+                                <td>Mixed Precision Training for Video Synthesis</td>
+                                <td><a target="_blank" href="https://youtu.be/j-qKHc_ULa8">video</a></td>
+                                <td><a target="_blank" href="files/tingchun_wang-mixed-precision-vid2vid.pdf">pdf</a>
+                                </td>
+                                <td><a href="https://tcwang0509.github.io/" target="_blank"><b>Ting-Chun Wang</b></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mixed Precision Training for Convolutional Tensor-Train LSTM</td>
+                                <td><a target="_blank" href="https://youtu.be/1XuD-ozHTLY">video</a></td>
+                                <td><a target="_blank"
+                                        href="files/wonmin_byeon-mixed-precision-training-for-convolutional-tensor-train-lstm.pdf">pdf</a>
+                                </td>
+                                <td><a href="https://wonmin-byeon.github.io/" target="_blank"><b>Wonmin Byeon</b></a>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid black;">
+                                <td>Mixed Precision Training for 3D Medical Image Analysis</td>
+                                <td><a target="_blank" href="https://youtu.be/YNackDBaJKs">video</a></td>
+                                <td><a target="_blank"
+                                        href="files/dong_yang-mixed-precision-training-for-3d-medical-image-analysis.pdf">pdf</a>
+                                </td>
+                                <td><a href="https://research.nvidia.com/person/dong-yang" target="_blank"><b>Dong
+                                            Yang</b></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-    </div><br><br>
+        </div><br><br>
 
-    <div class="container section text-center">
-        <div class="row">
-            <div class="col-md">
-                <h2 class="section-heading">Useful Links</h2>
-                <div class="text-left">
-                NVIDIA Tensor Cores: <a target="_blank" href="https://www.nvidia.com/en-us/data-center/tensor-cores/">https://www.nvidia.com/en-us/data-center/tensor-cores/</a><br>
-                Automatic Mixed Precision (AMP): <a target="_blank" href="https://nvidia.github.io/apex/amp.html">https://nvidia.github.io/apex/amp.html</a><br>
-                PyTorch AMP: <a target="_blank" href="https://pytorch.org/docs/stable/amp.html">https://pytorch.org/docs/stable/amp.html</a><br>
-                TensorFlow AMP: <a target="_blank" href="https://developer.nvidia.com/blog/nvidia-automatic-mixed-precision-tensorflow/">https://developer.nvidia.com/blog/nvidia-automatic-mixed-precision-tensorflow/</a><br>
-                High-Performance Sample Code for Various Applications: <a target="_blank" href="https://github.com/NVIDIA/DeepLearningExamples">https://github.com/NVIDIA/DeepLearningExamples</a><br>
-                Imaginaire GAN repository: <a target="_blank" href="https://github.com/NVlabs/imaginaire">https://github.com/NVlabs/imaginaire</a><br>
-                NVIDIA Data Loading Library (DALI) for faster data loading: <a target="_blank" href="https://github.com/NVIDIA/DALI">https://github.com/NVIDIA/DALI</a><br>
+        <div class="container section text-center">
+            <div class="row">
+                <div class="col-md">
+                    <h2 class="section-heading">Tutorial QnA</h2>
+                    <div class="text-left">
+                        <ol>
+                            <li>
+                                <b>What's the difference between FP32 and TF32 modes?</b><br>
+                                FP32 cores perform scalar instructions. TF32 is a Tensor Core mode, which performs
+                                matrix instructions - they are 8-16x faster and more energy efficient. Both take FP32 as
+                                inputs. TF32 mode also rounds those inputs to TF32.
+                            </li><br>
+                            <li>
+                                <b>To my understanding, Tensor Cores are required for mixed precision training.
+                                    Are you planning to include this functionality (mixed precision training) in
+                                    your lower end GPUs?</b><br>
+                                All the GPUs of the Turing family have Tensor Cores, meaning that you can perform
+                                mixed precision training using any Turing GPU.
+                                Tensor Cores are also available on the Volta family of GPUs (the family before Turing).
+                            </li><br>
+                            <li>
+                                <b>If we use mixed precision training, do we need to support mixed-precision inference
+                                    when deploying models on hardware like FPGA/ASIC? </b><br>
+                                No. 16 bit numbers can always be represented as single precision 32 bit numbers. You can
+                                also quantize the weights further during inference.
+                            </li><br>
+                            <li>
+                                <b>Is it possible to use AMP (or regular mixed precision) when doing something that
+                                    isn't
+                                    machine learning?
+                                    E.g. I have something in mind from stereo vision that would involve frequent
+                                    matrix multiplications, but has nothing to do with neural networks.</b><br>
+                                Yes, you can use the <a target="_blank"
+                                    href="https://developer.nvidia.com/cudnn">cuDNN</a> and <a target="_blank"
+                                    href="https://developer.nvidia.com/cublas">cuBLAS</a> libraries which allow you to
+                                run lower precision computations on the Tensor Cores. You will however have to manually
+                                decide which computations should be / not be performed in lower precision.
+                            </li><br>
+                            <li>
+                                <b>Could you elaborate more on the difference between the output of a command line like
+                                    .half() (in pytorch), and the <a target="_blank"
+                                        href="https://nvidia.github.io/apex/amp.html">Apex AMP mixed precision</a>
+                                    mode?</b><br>
+                                Half converts the entire model (all weights and tensors) to FP16. AMP casts most layers
+                                and operations to FP16 (e.g. linear layers and convolutions), but leaves some layers in
+                                FP32 (e.g. normalizations and losses), according to its layer selection rules.
+                            </li><br>
+                            <li>
+                                <b>After training with mixed precision are there any examples to perform inference
+                                    with our trained model using <a target="_blank"
+                                        href="https://nvidia.github.io/apex/amp.html">AMP</a>?</b><br>
+                                If using frameworks, you can apply the same AMP wrapper on the inference script.
+                                For faster inference, you can use <a target="_blank"
+                                    href="https://developer.nvidia.com/tensorrt">TensorRT</a> and leverage various
+                                precisions, such as 16-bits (FP16) and integer quantization (INT8/INT4).
+                            </li><br>
+                            <li>
+                                <b>Do you see mixed precision being adopted more widely in the coming years?</b><br>
+                                Yes, mixed precision training is already very widely adopted, especially in the
+                                industry.
+                                We expect even more adoption since NVIDIA is providing extensive hardware and software
+                                support.
+                            </li>
+                        </ol>
+                    </div>
                 </div>
-                <br>
             </div>
+        </div><br><br>
+
+        <div class="container section text-center">
+            <div class="row">
+                <div class="col-md">
+                    <h2 class="section-heading">Useful Links</h2>
+                    <div class="text-left">
+                        NVIDIA Tensor Cores: <a target="_blank"
+                            href="https://www.nvidia.com/en-us/data-center/tensor-cores/">https://www.nvidia.com/en-us/data-center/tensor-cores/</a><br>
+                        Automatic Mixed Precision (AMP): <a target="_blank"
+                            href="https://nvidia.github.io/apex/amp.html">https://nvidia.github.io/apex/amp.html</a><br>
+                        PyTorch AMP: <a target="_blank"
+                            href="https://pytorch.org/docs/stable/amp.html">https://pytorch.org/docs/stable/amp.html</a><br>
+                        TensorFlow AMP: <a target="_blank"
+                            href="https://developer.nvidia.com/blog/nvidia-automatic-mixed-precision-tensorflow/">https://developer.nvidia.com/blog/nvidia-automatic-mixed-precision-tensorflow/</a><br>
+                        High-Performance Sample Code for Various Applications: <a target="_blank"
+                            href="https://github.com/NVIDIA/DeepLearningExamples">https://github.com/NVIDIA/DeepLearningExamples</a><br>
+                        Imaginaire GAN repository: <a target="_blank"
+                            href="https://github.com/NVlabs/imaginaire">https://github.com/NVlabs/imaginaire</a><br>
+                        NVIDIA Data Loading Library (DALI) for faster data loading: <a target="_blank"
+                            href="https://github.com/NVIDIA/DALI">https://github.com/NVIDIA/DALI</a><br>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div><br><br>
+
+        <div class="container section text-center">
+            <h2 class="section-heading center">Organizers</h2>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td style="border: 0;">
+                            <img class="pic" src="imgs/DusanStosic.jpeg" alt="Dusan Stosic">
+                        </td>
+                        <td style="border: 0;">
+                            <img class="pic" src="imgs/PauliusM.jpeg" alt="Paulius Micikevicius">
+                        </td>
+                        <td style="border: 0;">
+                            <img class="pic" src="imgs/SzymonMigacz.png" alt="Szymon Migacz">
+                        </td>
+                        <td style="border: 0;">
+                            <img class="pic" src="imgs/MingYuLiu.jpg" alt="Ming-Yu Liu">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 0;">
+                            <b>Dusan Stosic</b>
+                        </td>
+                        <td style="border: 0;">
+                            <b>Paulius Micikevicius</b>
+                        </td>
+                        <td style="border: 0;">
+                            <b>Szymon Migacz</b>
+                        </td>
+                        <td colspan="4" style="border: 0;">
+                            <a href="http://mingyuliu.net/" target="_blank"><b>Ming-Yu Liu</b></a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="border: 0;">
+                            <img class="pic" src="imgs/ShaliniDeMello.jpg" alt="Shalini De Mello">
+                        </td>
+                        <td style="border: 0;">
+                            <img class="pic" src="imgs/TingChunWang.jpg" alt="Ting-Chun Wang">
+                        </td>
+                        <td style="border: 0;">
+                            <img class="pic" src="imgs/WonminByeon.jpg" alt="Wonmin Byeon">
+                        </td>
+                        <td style="border: 0;">
+                            <img class="pic" src="imgs/DongYang.jpeg" alt="Dong Yang">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 0;">
+                            <a href="https://research.nvidia.com/person/shalini-gupta" target="_blank"><b>Shalini De
+                                    Mello</b></a>
+                        </td>
+                        <td style="border: 0;">
+                            <a href="https://tcwang0509.github.io/" target="_blank"><b>Ting-Chun Wang</b></a>
+                        </td>
+                        <td style="border: 0;">
+                            <a href="https://wonmin-byeon.github.io/" target="_blank"><b>Wonmin Byeon</b></a>
+                        </td>
+                        <td style="border: 0;">
+                            <a href="https://research.nvidia.com/person/dong-yang" target="_blank"><b>Dong Yang</b></a>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                    </tr>
+                    <td colspan=4 style="border: 0;">
+                        <img class="pic" src="imgs/ArunMallya.jpg" alt="Arun Mallya">
+                    </td>
+                    <tr>
+                        <td colspan=4 style="border: 0;">
+                            <a href="https://arunmallya.github.io/" target="_blank"><b>Arun Mallya</b></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
-    </div><br><br>
-
-    <div class="container section text-center">
-        <h2 class="section-heading center">Organizers</h2>
-          <table class="table">
-            <tbody>
-              <tr>
-                <td style="border: 0;">
-                    <img class="pic" src="imgs/DusanStosic.jpeg" alt="Dusan Stosic">
-                </td>
-                <td style="border: 0;">
-                    <img class="pic" src="imgs/PauliusM.jpeg" alt="Paulius Micikevicius">
-                </td>
-                <td style="border: 0;">
-                    <img class="pic" src="imgs/SzymonMigacz.png" alt="Szymon Migacz">
-                </td>
-                <td style="border: 0;">
-                    <img class="pic" src="imgs/MingYuLiu.jpg" alt="Ming-Yu Liu">
-                </td>
-              </tr>
-              <tr>
-                <td style="border: 0;">
-                    <b>Dusan Stosic</b>
-                </td>
-                <td style="border: 0;">
-                    <b>Paulius Micikevicius</b>
-                </td>
-                <td style="border: 0;">
-                    <b>Szymon Migacz</b>
-                </td>
-                <td colspan="4" style="border: 0;">
-                    <a href="http://mingyuliu.net/" target="_blank"><b>Ming-Yu Liu</b></a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="border: 0;">
-                    <img class="pic" src="imgs/ShaliniDeMello.jpg" alt="Shalini De Mello">
-                </td>
-                <td style="border: 0;">
-                    <img class="pic" src="imgs/TingChunWang.jpg" alt="Ting-Chun Wang">
-                </td>
-                <td style="border: 0;">
-                    <img class="pic" src="imgs/WonminByeon.jpg" alt="Wonmin Byeon">
-                </td>
-                <td style="border: 0;">
-                    <img class="pic" src="imgs/DongYang.jpeg" alt="Dong Yang">
-                </td>
-              </tr>
-              <tr>
-                <td style="border: 0;">
-                    <a href="https://research.nvidia.com/person/shalini-gupta" target="_blank"><b>Shalini De Mello</b></a>
-                </td>
-                <td style="border: 0;">
-                    <a href="https://tcwang0509.github.io/" target="_blank"><b>Ting-Chun Wang</b></a>
-                </td>
-                <td style="border: 0;">
-                    <a href="https://wonmin-byeon.github.io/" target="_blank"><b>Wonmin Byeon</b></a>
-                </td>
-                <td style="border: 0;">
-                    <a href="https://research.nvidia.com/person/dong-yang" target="_blank"><b>Dong Yang</b></a>
-                </td>
-              </tr>
-
-              <tr>
-
-              </tr>
-                <td colspan=4 style="border: 0;">
-                  <img class="pic" src="imgs/ArunMallya.jpg" alt="Arun Mallya">
-                </td>
-              <tr>
-                <td colspan=4 style="border: 0;">
-                    <a href="https://arunmallya.github.io/" target="_blank"><b>Arun Mallya</b></a>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-    </div>
 
 
 
-    <br>
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-      </div>
-    </footer>
+        <br>
+        <footer class="text-muted">
+            <div class="container">
+                <p class="float-right">
+                    <a href="#">Back to top</a>
+                </p>
+            </div>
+        </footer>
 
-    <!-- Bootstrap core JavaScript
+        <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script>
-        // Set the date we're counting down to.
-        var countDownDate_1 = new Date("Aug 23, 2020 01:30:00 UTC+01:00").getTime();
-        var countDownDate_2 = new Date("Aug 23, 2020 14:30:00 UTC+01:00").getTime();
-        // Time slot 1: Saturday 22 August, 5:30 pm - 7:00 pm PDT
-        // Time slot 2: Sunday 23 August, 6:30 am - 8:00 am PDT
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+        <script>
+            // Set the date we're counting down to.
+            var countDownDate_1 = new Date("Aug 23, 2020 01:30:00 UTC+01:00").getTime();
+            var countDownDate_2 = new Date("Aug 23, 2020 14:30:00 UTC+01:00").getTime();
+            // Time slot 1: Saturday 22 August, 5:30 pm - 7:00 pm PDT
+            // Time slot 2: Sunday 23 August, 6:30 am - 8:00 am PDT
 
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-          // Get today's date and time
-          var now = new Date().getTime();
+            // Update the count down every 1 second
+            var x = setInterval(function () {
+                // Get today's date and time
+                var now = new Date().getTime();
 
-          // Find the distance between now and the count down date
-          var distance_1 = countDownDate_1 - now;
-          var distance_2 = countDownDate_2 - now;
-          console.log(distance_1)
-          console.log(distance_2)
+                // Find the distance between now and the count down date
+                var distance_1 = countDownDate_1 - now;
+                var distance_2 = countDownDate_2 - now;
+                console.log(distance_1)
+                console.log(distance_2)
 
-          // Time calculations for days, hours, minutes and seconds
-          var days_1 = Math.floor(distance_1 / (1000 * 60 * 60 * 24));
-          var days_2 = Math.floor(distance_2 / (1000 * 60 * 60 * 24));
-          var hours_1 = Math.floor((distance_1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var hours_2 = Math.floor((distance_2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes_1 = Math.floor((distance_1 % (1000 * 60 * 60)) / (1000 * 60));
-          var minutes_2 = Math.floor((distance_2 % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds_1 = Math.floor((distance_1 % (1000 * 60)) / 1000);
-          var seconds_2 = Math.floor((distance_2 % (1000 * 60)) / 1000);
+                // Time calculations for days, hours, minutes and seconds
+                var days_1 = Math.floor(distance_1 / (1000 * 60 * 60 * 24));
+                var days_2 = Math.floor(distance_2 / (1000 * 60 * 60 * 24));
+                var hours_1 = Math.floor((distance_1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var hours_2 = Math.floor((distance_2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes_1 = Math.floor((distance_1 % (1000 * 60 * 60)) / (1000 * 60));
+                var minutes_2 = Math.floor((distance_2 % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds_1 = Math.floor((distance_1 % (1000 * 60)) / 1000);
+                var seconds_2 = Math.floor((distance_2 % (1000 * 60)) / 1000);
 
-          // Display the result in the element with id="demo".
-          if (distance_1 < 0) {
-            document.getElementById("time_slot_1").innerHTML =
-            '<b>Time slot 1:</b> <s>Saturday 22 August, 5:30 pm - 7:00 pm PDT</s>';
-          } else {
-            document.getElementById("time_slot_1").innerHTML =
-              '<b>Time slot 2:</b> Saturday 22 August, 5:30 pm - 7:00 pm PDT< (' +
-              days_1 + "d " + hours_1 + "h " + minutes_1 + "m " + seconds_1 + "s) ";
-          }
-          if (distance_2 < 0) {
-            document.getElementById("time_slot_2").innerHTML =
-              '<b>Time slot 2:</b> <s>Sunday 23 August, 6:30 am - 8:00 am PDT</s>';
-          } else {
-            document.getElementById("time_slot_2").innerHTML =
-              '<b>Time slot 2:</b> Sunday 23 August, 6:30 am - 8:00 am PDT (' +
-              days_2 + "d " + hours_2 + "h " + minutes_2 + "m " + seconds_2 + "s) ";
-          }
-        }, 1000);
+                // Display the result in the element with id="demo".
+                if (distance_1 < 0) {
+                    document.getElementById("time_slot_1").innerHTML =
+                        '<b>Time slot 1:</b> <s>Saturday 22 August, 5:30 pm - 7:00 pm PDT</s>';
+                } else {
+                    document.getElementById("time_slot_1").innerHTML =
+                        '<b>Time slot 2:</b> Saturday 22 August, 5:30 pm - 7:00 pm PDT< (' +
+                        days_1 + "d " + hours_1 + "h " + minutes_1 + "m " + seconds_1 + "s) ";
+                }
+                if (distance_2 < 0) {
+                    document.getElementById("time_slot_2").innerHTML =
+                        '<b>Time slot 2:</b> <s>Sunday 23 August, 6:30 am - 8:00 am PDT</s>';
+                } else {
+                    document.getElementById("time_slot_2").innerHTML =
+                        '<b>Time slot 2:</b> Sunday 23 August, 6:30 am - 8:00 am PDT (' +
+                        days_2 + "d " + hours_2 + "h " + minutes_2 + "m " + seconds_2 + "s) ";
+                }
+            }, 1000);
         </script>
-  </body>
+</body>
+
 </html>
