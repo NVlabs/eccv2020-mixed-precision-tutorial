@@ -459,6 +459,8 @@
           // Find the distance between now and the count down date
           var distance_1 = countDownDate_1 - now;
           var distance_2 = countDownDate_2 - now;
+          console.log(distance_1)
+          console.log(distance_2)
 
           // Time calculations for days, hours, minutes and seconds
           var days_1 = Math.floor(distance_1 / (1000 * 60 * 60 * 24));
@@ -471,11 +473,22 @@
           var seconds_2 = Math.floor((distance_2 % (1000 * 60)) / 1000);
 
           // Display the result in the element with id="demo".
-          document.getElementById("time_slot_1").innerHTML =
-          '<b>Time slot 1:</b> <s>Saturday 22 August, 5:30 pm - 7:00 pm PDT</s>';
-          document.getElementById("time_slot_2").innerHTML =
-          '<b>Time slot 2:</b> Sunday 23 August, 6:30 am - 8:00 am PDT (' +
-          days_2 + "d " + hours_2 + "h " + minutes_2 + "m " + seconds_2 + "s) ";
+          if (distance_1 < 0) {
+            document.getElementById("time_slot_1").innerHTML =
+            '<b>Time slot 1:</b> <s>Saturday 22 August, 5:30 pm - 7:00 pm PDT</s>';
+          } else {
+            document.getElementById("time_slot_1").innerHTML =
+              '<b>Time slot 2:</b> Saturday 22 August, 5:30 pm - 7:00 pm PDT< (' +
+              days_1 + "d " + hours_1 + "h " + minutes_1 + "m " + seconds_1 + "s) ";
+          }
+          if (distance_2 < 0) {
+            document.getElementById("time_slot_2").innerHTML =
+              '<b>Time slot 2:</b> <s>Sunday 23 August, 6:30 am - 8:00 am PDT</s>';
+          } else {
+            document.getElementById("time_slot_2").innerHTML =
+              '<b>Time slot 2:</b> Sunday 23 August, 6:30 am - 8:00 am PDT (' +
+              days_2 + "d " + hours_2 + "h " + minutes_2 + "m " + seconds_2 + "s) ";
+          }
         }, 1000);
         </script>
   </body>
